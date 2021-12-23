@@ -82,5 +82,8 @@
     "aws-sdk-js-v3-rds-signer": "^1.0.1",
     "electron-squirrel-startup": "^1.0.0",
     "shelljs": "^0.8.4"
+  },
+  "resolutions": {
+    "trim-newlines": "^4.0.2"
   }
 }
