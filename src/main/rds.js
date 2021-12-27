@@ -1,6 +1,6 @@
 const { RDSClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-rds");
-const shell = require('shelljs')
 const { fromIni } = require("@aws-sdk/credential-provider-ini");
+const getAuthToken = require('./signer.js')
 
 const REGION = "eu-central-1";
 
@@ -9,6 +9,7 @@ const listRDS = (profile) => {
     region: REGION,
     credentials: fromIni({ profile })
   });
+
   const command = new DescribeDBInstancesCommand({});
   this.rds.send(command).then(result => {
     mainWindow.webContents.send(
@@ -17,16 +18,16 @@ const listRDS = (profile) => {
     );
   })
 }
-// @TODO: make it use vanilla AWS-SDK methods 
-const getAuthRDS = (db_config, profile) => {
-  let cmd = `aws rds generate-db-auth-token --hostname "${db_config.hostname}" --port "${db_config.port}" --region eu-central-1 --username "${db_config.username}"`
 
-  var child = shell.exec(cmd, { async: true });
-  child.stdout.on('data', function(data) {
-    mainWindow.webContents.send(
-      'rdsGetAuthToken', data
-    );
-  });
+const getAuthRDS = (db_config, profile) => {
+  getAuthToken(
+    {
+      ...db_config,
+      credentials: fromIni({ profile })
+    }
+  ).then(token => {
+    mainWindow.webContents.send('rdsGetAuthToken', token);
+  })
 }
 
 module.exports.listRDS = listRDS

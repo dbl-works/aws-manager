@@ -11,6 +11,8 @@ ipcMain.on("rdsGetAuthToken", (event, args) => {
       hostname: args.db.hostname,
       port: args.db.port,
       username: args.db.username,
+      region: args.db.region,
+      credentials: args.db.credentials,
     },
     args.profile
   );

@@ -11,6 +11,7 @@ export default class RDSManager {
       this.db_instances[i.DBName] = {
         name: i.DBName,
         project: project,
+        region: i.DBInstanceArn.split(':')[3],
         env: env,
         username: `${project}_${env}_readonly`,
         hostname: i.Endpoint.Address,
