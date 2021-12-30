@@ -24,15 +24,18 @@ class Credentials {
   parse(fileContent) {
     let lines = fileContent.trim().split('\n')
 
+    let currentProfile = ''
     for (let i = 0; i < lines.length; i += 3) {
-      let profile = lines[i].replaceAll(/\[|\]/g, '')
-      this.parsedCredentials[profile] = {}
-      
-      let [key_1, val_1] = lines[i + 1].split('=').map(v => v.trim())
-      this.parsedCredentials[profile][key_1] = val_1
+      if (lines[i].includes('[') && lines[i].includes(']')) {
+        let profile = lines[i].replaceAll(/\[|\]/g, '')
+        currentProfile = profile
+        this.parsedCredentials[currentProfile] = {}
+      }
 
-      let [key_2, val_2] = lines[i + 2].split('=').map(v => v.trim())
-      this.parsedCredentials[profile][key_2] = val_2
+      if (lines[i].includes('aws_access_key_id') || lines[i].includes('aws_secret_access_key')) {
+        let [key, val] = lines[i].split('=').map(v => v.trim())
+        this.parsedCredentials[currentProfile][key] = val
+      }
     }
   }
 
