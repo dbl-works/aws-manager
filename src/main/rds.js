@@ -2,11 +2,8 @@ const { RDSClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-rds")
 const { fromIni } = require("@aws-sdk/credential-provider-ini");
 const getAuthToken = require('./signer.js')
 
-const REGION = "eu-central-1";
-
 const listRDS = (profile) => {
   this.rds = new RDSClient({
-    region: REGION,
     credentials: fromIni({ profile })
   });
 
