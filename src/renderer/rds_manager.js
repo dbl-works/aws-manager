@@ -29,10 +29,7 @@ export default class RDSManager {
     Object.keys(this.db_instances).forEach((name, _) => {
       document.getElementById('databases').insertAdjacentHTML(
         'beforeend',
-        `
-          <p>${name}</p>
-          <button class="generate-password" data-name="${name}">🔑 Generate</button>
-        `
+        this.databaseTemplate(name, this.db_instances[name].username)
       )
     })
 
@@ -48,6 +45,28 @@ export default class RDSManager {
         )
       })
     })
+  }
+
+  databaseTemplate(name, username) {
+    return `
+      <tr>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="flex items-center">
+            <div class="ml-4">
+              <div class="text-sm font-medium text-gray-900">
+                ${name}
+              </div>
+              <div class="text-sm text-gray-500">
+                ${username}
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <button class="generate-password px-2 rounded bg-green-100 text-green-800" data-name="${name}">🔑 Generate Password</button>
+        </td>
+      </tr>
+    `
   }
 
   showToken(token) {

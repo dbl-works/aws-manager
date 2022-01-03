@@ -8,20 +8,40 @@
         margin: 10px 0;
         width: 100%;
       }
-
-      body {
-        background: rgb(37, 37, 37);
-        color: white;
-      }
     </style>
   </head>
   <body>
-    <h1>💻 RDS Manager</h1>
-    <h3>Automatically selected AWS profile:</h3>
-    <select name="" id="profile"></select>
-    <h3>Available databases:</h3>
-    <div id="databases"></div>
-
-    <textarea id="password" cols="30" rows="10" placeholder="password will appear here..."></textarea>
+    <div class="container px-4 py-4">
+      <div class="flex items-center justify-between mb-4">
+        <h1 class="text-xl font-semibold mr-2">💻 RDS Manager</h1>
+        <div class="flex items-center">
+          <h3 class="text-lg font-semibold mr-2">AWS profile:</h3>
+          <select name="" id="profile" class="mt-1 block py-1 px-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></select>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200" id="databases">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <textarea id="password" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md px-4 py-4" cols="30" rows="10" placeholder="password will appear here..."></textarea>
+    </div>
   </body>
 </html>
