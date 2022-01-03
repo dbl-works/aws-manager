@@ -53,6 +53,6 @@ export default class RDSManager {
   }
 
   getRDSInstances() {
-    window.ipcRenderer.send('rdsList', { profile: this.aws_cm.defaultProfile() })
+    window.ipcRenderer.send('rdsList', { profile: this.aws_cm.currentProfile() })
   }
 }

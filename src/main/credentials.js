@@ -20,12 +20,11 @@ class Credentials {
       });
   }
 
-  // @TODO: refactor
   parse(fileContent) {
     let lines = fileContent.trim().split('\n')
 
     let currentProfile = ''
-    for (let i = 0; i < lines.length; i += 3) {
+    for (let i = 0; i < lines.length; i++) {
       if (lines[i].includes('[') && lines[i].includes(']')) {
         let profile = lines[i].replaceAll(/\[|\]/g, '')
         currentProfile = profile
