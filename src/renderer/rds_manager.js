@@ -7,6 +7,8 @@ export default class RDSManager {
 
   displayDatabases({ DBInstances }) {
     DBInstances.forEach((i, _) => {
+      if (!i.DBName) return
+
       let [project, env] = i.DBName.split('_')
       this.db_instances[i.DBName] = {
         name: i.DBName,

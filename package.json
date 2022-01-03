@@ -1,7 +1,7 @@
 {
   "name": "aws-manager",
   "productName": "aws-manager",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
@@ -42,6 +42,18 @@
           "config": {}
         }
       ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "dbl-works",
+              "name": "rds-manager"
+            },
+            "prerelease": true
+          }
+        }
+      ],
       "plugins": [
         [
           "@electron-forge/plugin-webpack",
@@ -69,6 +81,7 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "@electron-forge/plugin-webpack": "6.0.0-beta.61",
+    "@electron-forge/publisher-github": "^6.0.0-beta.61",
     "@vercel/webpack-asset-relocator-loader": "1.7.0",
     "css-loader": "^6.0.0",
     "electron": "16.0.5",
