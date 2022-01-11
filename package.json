@@ -96,9 +96,7 @@
     "@aws-sdk/client-s3": "^3.44.0",
     "@aws-sdk/credential-provider-ini": "^3.41.0",
     "@aws-sdk/credential-providers": "^3.46.0",
-    "aws-sdk-js-v3-rds-signer": "^1.0.1",
-    "electron-squirrel-startup": "^1.0.0",
-    "shelljs": "^0.8.4"
+    "electron-squirrel-startup": "^1.0.0"
   },
   "resolutions": {
     "trim-newlines": "^4.0.2"
