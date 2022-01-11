@@ -1,10 +1,10 @@
 const { RDSClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-rds");
-const { fromIni } = require("@aws-sdk/credential-provider-ini");
+const { fromIni } = require("@aws-sdk/credential-providers");
 const getAuthToken = require('./signer.js')
 
 const listRDS = (profile) => {
   this.rds = new RDSClient({
-    credentials: fromIni({ profile })
+    credentials: fromIni({ profile: profile })
   });
 
   const command = new DescribeDBInstancesCommand({});
