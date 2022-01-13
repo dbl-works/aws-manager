@@ -84,6 +84,7 @@ export default class RDSManager {
   }
 
   showToken(token) {
+    window.clipboard.writeText(token)
     document.getElementById('password').innerText = token
   }
 
