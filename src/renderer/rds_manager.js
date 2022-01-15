@@ -3,13 +3,16 @@ export default class RDSManager {
     this.aws_cm = aws_cm
     this.db_instances = {}
     this.getRDSInstances()
+
+    document.querySelector('.alert .close').addEventListener('click', function() {
+      document.querySelector('.alert').style.display = 'none'
+    })
   }
 
   displayDatabases({ DBInstances }) {
     this.db_instances = {}
 
     DBInstances.forEach((i, _) => {
-      console.log(i)
       let [project, env] = i.DBInstanceIdentifier.split('-')
 
       let username = env ? `${project}_${env}_readonly` : '-'
@@ -26,6 +29,12 @@ export default class RDSManager {
       }
     })
     this.showInstances()
+  }
+
+  showError(msg) {
+    document.querySelector('.alert .title').innerText = msg.title || 'Something went wrong!'
+    document.querySelector('.alert .message').innerText = msg.message
+    document.querySelector('.alert').style.display = 'block';
   }
 
   showInstances() {

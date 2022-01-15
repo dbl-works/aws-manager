@@ -16,7 +16,7 @@ class Credentials {
         mainWindow.webContents.send("credentials", this.parsedCredentials);
       })
       .catch((e) => {
-        throw e;
+        mainWindow.webContents.send("error", { title: 'Credentials', message: 'Unable to parse credentials, check if ~/.aws/credentials in place and in correct format' });
       });
   }
 

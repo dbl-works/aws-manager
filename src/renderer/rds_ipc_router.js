@@ -6,4 +6,8 @@ module.exports = function(rds_manager) {
   window.ipcRenderer.receive('rdsGetAuthToken', (msg) => {
     rds_manager.showToken(msg)
   })
+
+  window.ipcRenderer.receive('error', (msg) => {
+    rds_manager.showError(msg)
+  })
 }
