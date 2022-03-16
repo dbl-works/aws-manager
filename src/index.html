@@ -3,14 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>RDS Password Manager</title>
-    <style>
-      #password {
-        margin: 10px 0;
-        width: 100%;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/index.css">
   </head>
-  <body>
+  <body class="bg-gray-800">
+    <!-- ALERT -->
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative m-2 alert hidden" role="alert">
       <strong class="font-bold title">Holy smokes!</strong>
       <span class="block sm:inline message">Something seriously bad happened.</span>
@@ -18,40 +14,91 @@
         <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
       </span>
     </div>
-    <div class="container px-4 py-4">
-      <div class="flex items-center justify-between mb-4">
-        <h1 class="text-xl font-semibold mr-2">💻 RDS Manager</h1>
-        <div class="flex items-center">
-          <h3 class="text-lg font-semibold mr-2">AWS profile:</h3>
-          <select name="" id="profile" class="mt-1 block py-1 px-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></select>
+    <!-- NAVIGATION -->
+    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+      <ul class="flex flex-wrap -mb-px tabs" id="myTab" role="tablist">
+          <li class="mr-2" role="presentation">
+            <h1 class="text-xl text-white font-semibold py-3 px-4">💻 RDS Manager</h1>
+          </li>
+          <li class="mr-2" role="presentation">
+            <button class="inline-block py-4 px-4 text-sm font-medium text-center text-gray-500 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 active tab" id="dashboard-tab" data-target="dashboard" type="button" role="tab" aria-controls="profile" aria-selected="false">Dashboard</button>
+          </li>
+          <li class="mr-2" role="presentation">
+            <button class="inline-block py-4 px-4 text-sm font-medium text-center text-gray-500 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 tab" id="profiles-tab" data-target="profiles" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Profiles</button>
+          </li>
+      </ul>
+    </div>
+    <!-- CONTENT -->
+    <div id="panels">
+      <div class="active p-4 bg-gray-50 rounded-lg dark:bg-gray-800 tab-content dashboard" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+        <div class="container px-4 py-4 main">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <h3 class="text-lg text-white font-semibold mr-2">AWS profile:</h3>
+              <select name="" id="profile" class="mt-1 block py-1 px-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></select>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-700">
+                      <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                          Name
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                          Identifier
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-100" id="databases">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <textarea id="password" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md px-4 py-4" cols="30" rows="10" placeholder="password will appear here..."></textarea>
         </div>
       </div>
-      <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                  <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Name
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Identifier
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200" id="databases">
-                </tbody>
-              </table>
+      <div class="p-4 bg-gray-50 rounded-lg dark:bg-gray-800 tab-content profiles" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="container px-4 py-4 profiles flex">
+          <div class="profiles-list-wrapper card w-2/5 h-screen bg-gray-700 p-4 sm:rounded-lg m-1">
+            <div class="flex">
+              <h2 class="text-lg text-white font-semibold mr-2">Profiles</h2>
+              <button class="px-2 rounded bg-green-100 text-gray-800 new-profile">New</button>
             </div>
+            <div class="profiles-list">
+            </div>
+          </div>
+          <div class="profiles-form card w-3/5 h-screen bg-gray-700 p-4 sm:rounded-lg m-1">
+            <h2 class="text-lg text-white font-semibold mr-2">Update/Create profile:</h2>
+            <input type="hidden" name="profile_identifier" id="profile-identifier">
+
+            <label for="name" class="block text-sm font-medium text-white">Profile name</label>
+            <input type="text" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm py-1.5 pl-2 pr-3 my-3 sm:text-sm border-gray-300 rounded-md" placeholder="default">
+
+            <label for="aws_access_key_id" class="block text-sm font-medium text-white">AWS Access Key ID</label>
+            <input type="text" name="aws_access_key_id" id="aws_access_key_id" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm py-1.5 pl-2 pr-3 my-3 sm:text-sm border-gray-300 rounded-md" placeholder="">
+
+            <label for="aws_secret_access_key" class="block text-sm font-medium text-white">AWS Secret Access Key</label>
+            <input type="text" name="aws_secret_access_key" id="aws_secret_access_key" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm py-1.5 pl-2 pr-3 my-3 sm:text-sm border-gray-300 rounded-md" placeholder="">
+
+            <label for="region" class="block text-sm font-medium text-white">Region</label>
+            <input type="text" name="region" id="region" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm py-1.5 pl-2 pr-3 my-3 sm:text-sm border-gray-300 rounded-md" placeholder="eu-central-1">
+
+            <label for="output" class="block text-sm font-medium text-white">Output</label>
+            <input type="text" name="output" id="output" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm py-1.5 pl-2 pr-3 my-3 sm:text-sm border-gray-300 rounded-md" placeholder="json">
+
+            <button class="px-2 rounded bg-gray-100 text-gray-800 save">Create</button>
           </div>
         </div>
       </div>
-      <textarea id="password" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md px-4 py-4" cols="30" rows="10" placeholder="password will appear here..."></textarea>
     </div>
   </body>
 </html>
