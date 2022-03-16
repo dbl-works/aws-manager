@@ -71,13 +71,15 @@
           <div class="profiles-list-wrapper card w-2/5 h-screen bg-gray-700 p-4 sm:rounded-lg m-1">
             <div class="flex">
               <h2 class="text-lg text-white font-semibold mr-2">Profiles</h2>
-              <button class="px-2 rounded bg-green-100 text-gray-800 new-profile">New</button>
             </div>
             <div class="profiles-list">
             </div>
           </div>
           <div class="profiles-form card w-3/5 h-screen bg-gray-700 p-4 sm:rounded-lg m-1">
-            <h2 class="text-lg text-white font-semibold mr-2">Update/Create profile:</h2>
+            <div class="flex justify-between mb-6">
+              <h2 class="text-lg text-white font-semibold mr-2">Update/Create profile:</h2>
+              <button class="px-2 rounded bg-yellow-100 text-yellow-800 new-profile">Reset form</button>
+            </div>
             <input type="hidden" name="profile_identifier" id="profile-identifier">
 
             <label for="name" class="block text-sm font-medium text-white">Profile name</label>
@@ -94,8 +96,9 @@
 
             <label for="output" class="block text-sm font-medium text-white">Output</label>
             <input type="text" name="output" id="output" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm py-1.5 pl-2 pr-3 my-3 sm:text-sm border-gray-300 rounded-md" placeholder="json">
-
-            <button class="px-2 rounded bg-gray-100 text-gray-800 save">Create</button>
+            <div class="flex justify-end">
+              <button class="px-2 rounded bg-green-200 text-green-800 save right-0">Create</button>
+            </div>
           </div>
         </div>
       </div>

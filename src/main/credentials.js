@@ -46,7 +46,7 @@ class Credentials {
   }
 
   async create(profileData) {
-    let res = await appendFile(DEFAULT_CREDENTIALS_PATH, this.buildProfileLines(profileData))
+    let res = await appendFile(DEFAULT_CREDENTIALS_PATH, "\n\n" + this.buildProfileLines(profileData))
 
     this.fetch()
     this.sync()
@@ -69,7 +69,7 @@ class Credentials {
     // Build new version of credentials file
     let newCredentials = Object.keys(this.parsedCredentials).map(profile => {
       return this.buildProfileLines(this.parsedCredentials[profile])
-    }).join('')
+    }).join('\n\n')
 
     writeFileSync(DEFAULT_CREDENTIALS_PATH, newCredentials)
 
@@ -90,7 +90,7 @@ class Credentials {
     // Build new version of credentials file
     let newCredentials = Object.keys(this.parsedCredentials).map(profile => {
       return this.buildProfileLines(this.parsedCredentials[profile])
-    }).join('')
+    }).join('\n\n')
 
     writeFileSync(DEFAULT_CREDENTIALS_PATH, newCredentials)
 
