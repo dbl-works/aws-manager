@@ -11,6 +11,7 @@ class App {
   setupListeners() {
     mainWindow.webContents.on("did-finish-load", () => {
       this.credentials.fetch()
+      this.credentials.sync()
     })
   }
 }

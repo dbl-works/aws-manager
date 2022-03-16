@@ -14,13 +14,18 @@ class Credentials {
     try {
       let result = readFileSync(DEFAULT_CREDENTIALS_PATH, "utf-8")
       this.parse(result)
-      mainWindow.webContents.send("credentials", this.parsedCredentials);
     } catch {
       mainWindow.webContents.send("no-credentials");
     }
   }
 
+  sync() {
+    mainWindow.webContents.send("credentials", this.parsedCredentials);
+  }
+
   parse(fileContent) {
+    this.parsedCredentials = {}
+
     let lines = fileContent.trim().split('\n')
 
     let currentProfile = ''
@@ -44,6 +49,7 @@ class Credentials {
     let res = await appendFile(DEFAULT_CREDENTIALS_PATH, this.buildProfileLines(profileData))
 
     this.fetch()
+    this.sync()
   }
 
   async update(profileIdentifier, profileData) {
@@ -68,6 +74,7 @@ class Credentials {
     writeFileSync(DEFAULT_CREDENTIALS_PATH, newCredentials)
 
     this.fetch()
+    this.sync()
   }
 
   async remove(profileIdentifier) {
@@ -88,6 +95,7 @@ class Credentials {
     writeFileSync(DEFAULT_CREDENTIALS_PATH, newCredentials)
 
     this.fetch()
+    this.sync()
   }
 
   buildProfileLines(profileData) {
