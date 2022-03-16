@@ -16,6 +16,7 @@ window.ipcRenderer.receive('credentials', (credentials) => {
     window.aws_cm.credentials = credentials
     window.aws_cm.displayOptions()
     window.aws_cm.addEditableProfiles()
+    window.rds_manager.getRDSInstances()
   }
 
   if (!window.rds_manager) {
