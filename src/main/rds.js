@@ -16,7 +16,7 @@ const listRDS = (profile) => {
   }).catch(err => {
     mainWindow.webContents.send(
       'error',
-      { message: 'Unable to list RDS instances. Please check your credentials and profile permissions.' }
+      { message: err.message || 'Unable to list RDS instances. Please check your credentials and profile permissions.' }
     );
   })
 }
