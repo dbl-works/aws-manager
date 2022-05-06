@@ -2,7 +2,7 @@
   "name": "aws-manager",
   "productName": "aws-manager",
   "version": "0.1.0",
-  "description": "My Electron application description",
+  "description": "Tool for generating AWS RDS short-lived passwords for IAM based authentication.",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
