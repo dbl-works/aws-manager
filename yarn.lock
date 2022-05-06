@@ -154,7 +154,7 @@
     "@aws-sdk/util-utf8-node" "3.55.0"
     tslib "^2.3.1"
 
-"@aws-sdk/client-rds@^3.43.0":
+"@aws-sdk/client-rds@^3.85.0":
   version "3.85.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-rds/-/client-rds-3.85.0.tgz#180258a967e8134d7b990b4a72b75df13c7aaee5"
   integrity sha512-e0FZytSHgtAV9QqWymt1wkOyu0/GnKW+t0BcDTKfM3XoijAOas+okkf/mulABgC+fdp/NeoewEOks8tu1qAXcQ==
@@ -197,7 +197,7 @@
     fast-xml-parser "3.19.0"
     tslib "^2.3.1"
 
-"@aws-sdk/client-s3@^3.44.0":
+"@aws-sdk/client-s3@^3.85.0":
   version "3.85.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-s3/-/client-s3-3.85.0.tgz#3d823ec531fabd93ea6883c464d109d82d971810"
   integrity sha512-SwSbuC04hzHh4D6ioqHrAfdcPyLHN0CJYjKN5stMmwRc4BmbI+nPwpUAs5nCyxpil95feRNamIn8PA4P2HF8Eg==
@@ -374,7 +374,7 @@
     "@aws-sdk/url-parser" "3.78.0"
     tslib "^2.3.1"
 
-"@aws-sdk/credential-provider-ini@3.85.0", "@aws-sdk/credential-provider-ini@^3.41.0":
+"@aws-sdk/credential-provider-ini@3.85.0", "@aws-sdk/credential-provider-ini@^3.85.0":
   version "3.85.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-ini/-/credential-provider-ini-3.85.0.tgz#ecbd1d9f3afbcb054b241ae5ced0bc5db6b2a053"
   integrity sha512-KgzLGq+w8OrSLutwdYUw0POeLinGQKcqvQJ9702eoeXCwZMnEHwKqU61bn8QKMX/tuYVCNV4I1enI7MmYPW8Lw==
@@ -434,7 +434,7 @@
     "@aws-sdk/types" "3.78.0"
     tslib "^2.3.1"
 
-"@aws-sdk/credential-providers@^3.46.0":
+"@aws-sdk/credential-providers@^3.85.0":
   version "3.85.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-providers/-/credential-providers-3.85.0.tgz#2a0b2a6c9655d7aa395291bec9bc66eedccc87a9"
   integrity sha512-BNznyZjo+zHyeMar+Aq49BdqAHbTqWUGaSFdmMp4pD2+NRGAm+KbeGZh+s/QTjgSyyHozN5wH2jP3vGUzDJUeA==
@@ -2274,7 +2274,7 @@ author-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/author-regex/-/author-regex-1.0.0.tgz#d08885be6b9bbf9439fe087c76287245f0a81450"
   integrity sha1-0IiFvmubv5Q5/gh8dihyRfCoFFA=
 
-autoprefixer@^10.4.1:
+autoprefixer@^10.4.7:
   version "10.4.7"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.7.tgz#1db8d195f41a52ca5069b7593be167618edbbedf"
   integrity sha512-ypHju4Y2Oav95SipEcCcI5J7CGPuvz8oat7sUtYj3ClK44bldfvtvcxK6IEK++7rqB7YchDGzweZIBG+SD0ZAA==
@@ -3020,7 +3020,7 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-css-loader@^6.0.0:
+css-loader@^6.7.1:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.7.1.tgz#e98106f154f6e1baf3fc3bc455cb9981c1d5fd2e"
   integrity sha512-yB5CNFa14MbPJcomwNh3wLThtkZgcNyI2bNMRt8iE5Z8Vwl7f8vQXFAzn2HDOJvtDq2NTZBUGMSUNNyrv3/+cw==
