@@ -1,7 +1,7 @@
 {
   "name": "aws-manager",
   "productName": "aws-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tool for generating AWS RDS short-lived passwords for IAM based authentication.",
   "main": ".webpack/main",
   "scripts": {
