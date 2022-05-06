@@ -6,6 +6,7 @@
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
+    "pack": "electron-builder -mwl",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -17,6 +18,18 @@
     "email": "moroz.grigory@gmail.com"
   },
   "license": "MIT",
+  "build": {
+    "appId": "rds.manager",
+    "mac": {
+      "category": "productivity"
+    },
+    "win": {
+      "target": "portable"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
   "config": {
     "forge": {
       "packagerConfig": {},
@@ -30,8 +43,7 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin",
-            "win32"
+            "darwin"
           ]
         },
         {
@@ -87,6 +99,7 @@
     "autoprefixer": "^10.4.1",
     "css-loader": "^6.0.0",
     "electron": "16.0.6",
+    "electron-builder": "^22.14.13",
     "node-loader": "^2.0.0",
     "postcss-loader": "^6.2.1",
     "style-loader": "^3.0.0",
