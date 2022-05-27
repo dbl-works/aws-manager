@@ -8,11 +8,27 @@ More learning resources:
 * [rust-lang/rustlings](https://github.com/rust-lang/rustlings)
 * [freecodecamp/rust-in-replit/](https://www.freecodecamp.org/news/rust-in-replit/)
 
-# How to install?
 
-```shell
-# ?
+
+## Project setup
+```
+yarn install
 ```
 
-# How to build? (TODO)
-# How to contribute? (TODO)
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
