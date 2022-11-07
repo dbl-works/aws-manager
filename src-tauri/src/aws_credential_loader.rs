@@ -1,7 +1,9 @@
 extern crate dirs;
 use std::fs;
+use serde::{Serialize};
 
-struct AWSCredential {
+#[derive(Serialize)]
+pub struct AWSCredential {
   profile_name: String,
   aws_access_key_id: String,
   aws_secret_access_key: String,
@@ -27,11 +29,16 @@ fn load_credentials_into_file() -> String {
   fs::read_to_string(credentials_path).expect(&error_msg)
 }
 
-// @TODO(lud, 2022-11-07): parse all configs and return a list of objects
-//       -> return type: "Vec<AWSCredential>"
 #[tauri::command]
 pub fn load_credentials() -> String {
-  let data = load_credentials_into_file();
+  let mut credentials:Vec<AWSCredential> = Vec::new();
 
-  data
+  // @TODO(lud, 2022-11-07): parse all configs from "data" and push into vector
+  // let data = load_credentials_into_file();
+  let dummy_credential = build_aws_credential_template(); // for testing
+  credentials.push(dummy_credential);
+
+  let json = serde_json::to_string(&credentials);
+
+  json.unwrap()
 }
