@@ -1142,6 +1142,11 @@
   resolved "https://registry.yarnpkg.com/@soda/get-current-script/-/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
 
+"@tauri-apps/api@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-1.1.0.tgz#2c5756f6aeecd36f7683183eaba021690711bedf"
+  integrity sha512-n13pIqdPd3KtaMmmAcrU7BTfdMtIlGNnfZD0dNX8L4p8dgmuNyikm6JAA+yCpl9gqq6I8x5cV2Y0muqdgD0cWw==
+
 "@tauri-apps/cli-darwin-arm64@1.0.0-rc.11":
   version "1.0.0-rc.11"
   resolved "https://registry.yarnpkg.com/@tauri-apps/cli-darwin-arm64/-/cli-darwin-arm64-1.0.0-rc.11.tgz#b032b00db2a6d2923c1f6efb15c4eb6ba07df32b"
