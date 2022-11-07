@@ -21,11 +21,9 @@ fn build_aws_credential_template() -> AWSCredential {
 
 fn load_credentials_into_file() -> String {
   let home_dir = dirs::home_dir().unwrap().into_os_string().into_string().unwrap();
-  println!("home_dir: {}", &home_dir);
   let credentials_path = String::from(home_dir) + "/.aws/credentials";
-  println!("credentials_path: {}", &credentials_path);
-
   let error_msg = String::from("Error while reading credentials file from ") + &credentials_path;
+
   fs::read_to_string(credentials_path).expect(&error_msg)
 }
 
