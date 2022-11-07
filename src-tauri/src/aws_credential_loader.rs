@@ -14,8 +14,8 @@ pub struct AWSCredential {
 fn build_aws_credential_template() -> AWSCredential {
   AWSCredential {
     profile_name: String::from("default"),
-    aws_access_key_id: String::from("aws_access_key_id"),
-    aws_secret_access_key: String::from("aws_secret_access_key"),
+    aws_access_key_id: String::from("YOUR-KEY-ID-HERE"),
+    aws_secret_access_key: String::from("YOUR-SECRET-KEY-HERE"),
     region: String::from("eu-central-1"),
     output: String::from("json"),
   }

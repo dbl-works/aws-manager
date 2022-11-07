@@ -1,7 +1,15 @@
 <template>
   <div>
     <h2>{{ msg }}</h2>
-    <p>{{ AWSCredentials }}</p>
+    <div v-for="credential in AWSCredentials" :key="credential.profile_name">
+      <span>Profile Name: {{ credential.profile_name }}</span>
+      <br/>
+      <span>Access Key ID: {{ credential.aws_access_key_id }}</span>
+      <br/>
+      <span>Secret Access Key: {{ credential.aws_secret_access_key }}</span>
+      <br/>
+      <span>Region: {{ credential.region }}</span>
+    </div>
   </div>
 </template>
 
@@ -14,7 +22,12 @@ export default {
   },
   data() {
     return {
-      AWSCredentials: 'Unable to load AWS credentials file.',
+      AWSCredentials: [{
+        profile_name: 'default',
+        aws_access_key_id: 'your key ID',
+        aws_secret_access_key: 'your secret key',
+        region: 'eu-central-1'
+      }],
     }
   },
   mounted() {
@@ -22,7 +35,7 @@ export default {
   },
   methods: {
     loadAWSCredentials() {
-      invoke('load_credentials').then((body) => this.AWSCredentials = body)
+      invoke('load_credentials').then((body) => this.AWSCredentials = JSON.parse(body))
     }
   }
 }
