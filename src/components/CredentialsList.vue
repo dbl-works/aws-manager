@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     loadAWSCredentials() {
-      invoke('get_credentials').then((body) => this.AWSCredentials = JSON.parse(body))
+      invoke('aws_credentials_index').then((body) => this.AWSCredentials = JSON.parse(body))
     }
   }
 }

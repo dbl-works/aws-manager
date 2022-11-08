@@ -5,8 +5,7 @@ use crate::aws::credentials::{
   credentials_path,
 };
 
-#[tauri::command]
-pub fn get_credentials() -> String {
+pub fn get_credentials() -> Vec<AWSCredential> {
   let mut credentials:Vec<AWSCredential> = Vec::new();
 
   // @TODO(lud, 2022-11-07): parse all configs from "data" and push into vector
@@ -15,9 +14,7 @@ pub fn get_credentials() -> String {
   let dummy_credential = build_aws_credential_template(); // for testing
   credentials.push(dummy_credential);
 
-  let json = serde_json::to_string(&credentials);
-
-  json.unwrap()
+  credentials
 }
 
 // private methods
