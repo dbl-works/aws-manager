@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     loadAWSCredentials() {
-      invoke('load_credentials').then((body) => this.AWSCredentials = JSON.parse(body))
+      invoke('get_credentials').then((body) => this.AWSCredentials = JSON.parse(body))
     }
   }
 }

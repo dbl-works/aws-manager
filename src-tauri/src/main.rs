@@ -3,12 +3,12 @@
   windows_subsystem = "windows"
 )]
 
-mod aws_credential_loader;
+mod aws;
 
 fn main() {
   tauri::Builder::default()
     .invoke_handler(tauri::generate_handler![
-      aws_credential_loader::load_credentials,
+      aws::credentials::reader::get_credentials,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
