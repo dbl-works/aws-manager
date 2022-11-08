@@ -1,4 +1,4 @@
-use serde::{Serialize};
+use serde::Serialize;
 
 pub mod reader;
 pub mod writer;
