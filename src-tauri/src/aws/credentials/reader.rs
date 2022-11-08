@@ -8,7 +8,8 @@ pub fn get_credentials() -> String {
   let mut credentials:Vec<AWSCredential> = Vec::new();
 
   // @TODO(lud, 2022-11-07): parse all configs from "data" and push into vector
-  // let data = load_credentials_into_file();
+  let data = load_credentials_into_file();
+  println!("{}", data); // @TODO(lud, 2022-11-08): for debugging, remove this line
   let dummy_credential = build_aws_credential_template(); // for testing
   credentials.push(dummy_credential);
 

@@ -12,7 +12,7 @@ pub struct AWSCredential {
   output: String,
 }
 
-pub fn credentials_path() -> String {
+fn credentials_path() -> String {
   let home_dir = dirs::home_dir().unwrap().into_os_string().into_string().unwrap();
   String::from(home_dir) + "/.aws/credentials"
 }
