@@ -2,14 +2,15 @@ use serde::Serialize;
 
 pub mod reader;
 pub mod writer;
+pub mod setter;
 
 #[derive(Serialize)]
 pub struct AWSCredential {
-  profile_name: String,
-  aws_access_key_id: String,
-  aws_secret_access_key: String,
-  region: String,
-  output: String,
+  pub profile_name: String,
+  pub aws_access_key_id: String,
+  pub aws_secret_access_key: String,
+  pub region: String,
+  pub output: String,
 }
 
 fn credentials_path() -> String {

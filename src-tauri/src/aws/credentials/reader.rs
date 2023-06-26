@@ -7,15 +7,13 @@ use crate::aws::credentials::{
 };
 
 use ini::{Ini, Properties};
-use std::collections::HashMap;
 use regex::Regex;
 use std::fs;
 
-pub fn get_credentials() -> HashMap<String, AWSCredential> {
-  let mut credentials:HashMap<String, AWSCredential> = HashMap::new();
+pub fn get_credentials() -> Vec<AWSCredential> {
+  let mut credentials:Vec<AWSCredential> = Vec::new();
 
   let data = load_credentials_file();
-  print!("data: {:?}", data);
 
   for (sec, props) in &data {
     if sec.is_none() {
@@ -23,22 +21,10 @@ pub fn get_credentials() -> HashMap<String, AWSCredential> {
     }
 
     let profile_name = sec.unwrap().to_string();
-    credentials.insert(profile_name, parse_credential(sec, props.clone()));
+    credentials.push(parse_credential(sec, props.clone()));
   }
 
   credentials
-}
-
-// private methods
-
-fn build_aws_credential_template() -> AWSCredential {
-  AWSCredential {
-    profile_name: String::from("default"),
-    aws_access_key_id: String::from("YOUR-KEY-ID-HERE"),
-    aws_secret_access_key: String::from("YOUR-SECRET-KEY-HERE"),
-    region: String::from("eu-central-1"),
-    output: String::from("json"),
-  }
 }
 
 fn load_credentials_file() -> Ini {
