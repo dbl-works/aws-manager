@@ -4,7 +4,9 @@ export default {
     './src/**/*.vue'
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ['mono', 'sans-serif'],
+    }
   },
   plugins: [],
 }

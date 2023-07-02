@@ -49,8 +49,14 @@ name = "app"
 version = "0.1.0"
 dependencies = [
  "aws-config",
+ "aws-credential-types",
  "aws-sdk-rds",
+ "aws-sdk-signer",
+ "aws-sig-auth",
+ "aws-smithy-http",
+ "aws-types",
  "dirs",
+ "http",
  "regex",
  "rust-ini",
  "serde",
@@ -202,6 +208,32 @@ dependencies = [
  "aws-smithy-xml",
  "aws-types",
  "bytes",
+ "http",
+ "regex",
+ "tokio-stream",
+ "tower",
+ "tracing",
+]
+
+[[package]]
+name = "aws-sdk-signer"
+version = "0.28.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f8486a69c7d14b5de06026c712cf8badfe7b5f6b6ad6b38f9a5522a105df500a"
+dependencies = [
+ "aws-credential-types",
+ "aws-endpoint",
+ "aws-http",
+ "aws-sig-auth",
+ "aws-smithy-async",
+ "aws-smithy-client",
+ "aws-smithy-http",
+ "aws-smithy-http-tower",
+ "aws-smithy-json",
+ "aws-smithy-types",
+ "aws-types",
+ "bytes",
+ "fastrand",
  "http",
  "regex",
  "tokio-stream",
