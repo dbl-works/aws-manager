@@ -1,12 +1,16 @@
 use serde::Serialize;
 
 pub mod fetcher;
+pub mod generator;
 
 #[derive(Serialize)]
 pub struct RDSInstance {
-  identifier: String,
+  endpoint: String,
   engine: String,
+  instance_class: String,
+  name: String,
+  port: i32,
   status: String,
-  endpoint: String
+  username: String,
 }
 
