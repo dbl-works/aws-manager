@@ -1,6 +1,7 @@
 extern crate dirs;
 extern crate ini;
 
+use aws_credential_types::Credentials;
 use crate::aws::credentials::{
   AWSCredential,
   credentials_path,
@@ -37,9 +38,6 @@ fn load_credentials_file() -> Ini {
   Ini::load_from_str(&buf).unwrap()
 }
 
-// @NOTE: this is totally broken and horrible. Better approach:
-//        iterate over every line, start a new profile once we hit a row that matches "[.*]"
-//        and then parse the key/value pairs from the following rows, filling default values if missing
 fn parse_credential(sec: Option<&str>, props: Properties) -> AWSCredential {
   let re = Regex::new(r"^aws_(.+)").unwrap();
   let sec = sec.unwrap().to_string();
@@ -63,10 +61,15 @@ fn parse_credential(sec: Option<&str>, props: Properties) -> AWSCredential {
   }
 
   AWSCredential {
-    profile_name: sec,
-    aws_access_key_id: aws_access_key_id,
-    aws_secret_access_key: aws_secret_access_key,
-    region: region.unwrap_or_else(|| "eu-central-1".to_string()).to_string(),
-    output: output.unwrap_or_else(|| "json".to_string()).to_string(),
+    profile_name: sec.clone(),
+    region: region.unwrap_or("eu-central-1".to_string()),
+    output: output.unwrap_or("json".to_string()),
+    credential: Credentials::new(
+    aws_access_key_id,
+    aws_secret_access_key,
+    None,
+    None,
+    "default",
+    ),
   }
 }

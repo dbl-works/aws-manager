@@ -1,3 +1,6 @@
+use aws_credential_types::Credentials;
+use aws_types::region::Region;
+
 use crate::aws;
 
 #[tauri::command]
@@ -9,13 +12,11 @@ pub fn aws_credentials_index() -> String {
 
 #[tauri::command]
 pub fn set_aws_profile(profile_name: String) -> () {
-  println!("Setting AWS_PROFILE to {}", profile_name);
   aws::credentials::setter::set_profile(profile_name);
 }
 
 #[tauri::command]
 pub async fn aws_rds_index() -> String {
-  print!("Fetching RDS instances...");
   let rds_instances = match aws::rds::fetcher::get_instances().await {
     Ok(v) => v,
     Err(e) => return format!("Error: {:?}", e),
@@ -25,6 +26,18 @@ pub async fn aws_rds_index() -> String {
     Ok(v) => v,
     Err(e) => format!("Error: {:?}", e),
   }
+}
+
+#[tauri::command]
+pub async fn generate_password(hostname: String, port: u16, username: String) -> String {
+  let credentials = aws::credentials::reader::get_credentials();
+  let credential = credentials.first().unwrap();
+  let region = Region::new(credential.region.clone());
+
+  let password = aws::rds::generator::generate_password(
+    &hostname, region, port, &username, &credential.credential
+  ).expect("An error occurred generating the password");
+  password
 }
 
 #[tauri::command]
