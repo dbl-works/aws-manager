@@ -1,0 +1,3 @@
+[toolchain]
+# regex pattern matching requires using the nightly build of rustc
+channel = "nightly"
