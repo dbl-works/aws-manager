@@ -27,7 +27,7 @@ yarn tauri:build
 # How to contribute
 * Open an issue to start a conversation
 * Open a pull request
-=======
+
 ### Compiles and hot-reloads for development
 ```
 yarn tauri:serve
