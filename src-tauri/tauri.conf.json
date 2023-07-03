@@ -3,8 +3,8 @@
   "build": {
     "beforeBuildCommand": "",
     "beforeDevCommand": "",
-    "devPath": "Set automatically by Vue CLI plugin",
-    "distDir": "Set automatically by Vue CLI plugin"
+    "devPath": "../src",
+    "distDir": "../dist"
   },
   "package": {
     "productName": "rds-manager",
