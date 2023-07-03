@@ -1,7 +1,7 @@
 {
   "name": "rds-manager",
   "version": "0.1.0",
-  "description": "Tool for generating AWS RDS short-lived passwords for IAM based authentication.",
+  "description": "Convenience Tool for working with AWS, e.g. to generate a RDS short-lived passwords for IAM based authentication.",
   "private": true,
   "license": "MIT",
   "author": {

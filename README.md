@@ -1,5 +1,7 @@
-# RDS Manager
-Provides a simple way to get password to AWS RDS instances.
+# AWS Manager
+## Feature Scope
+* Generate short-lived password to login to an RDS instance with IAM authentication
+* tbd
 
 This is a Rust rewrite based on https://tauri.studio/ to learn Rust.
 Join our Rust-learning channel if you want: [#learning-rust](https://tractionengineering.slack.com/archives/C03GMGJGDC5)
