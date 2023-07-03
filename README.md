@@ -24,6 +24,12 @@ cargo install
 yarn tauri:build
 ```
 
+on ARM/M1/M2:
+
+```sh
+yarn tauri:build --target universal-apple-darwin
+```
+
 # How to contribute
 * Open an issue to start a conversation
 * Open a pull request
