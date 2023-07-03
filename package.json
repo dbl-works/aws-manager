@@ -1,5 +1,5 @@
 {
-  "name": "rds-manager",
+  "name": "aws-manager",
   "version": "0.1.0",
   "description": "Convenience Tool for working with AWS, e.g. to generate a RDS short-lived passwords for IAM based authentication.",
   "private": true,
