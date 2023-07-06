@@ -4,8 +4,8 @@ use crate::aws::credentials::{
 };
 
 #[tauri::command]
-pub fn set_credentials(records: Vec<AWSCredential>) {
-  let path = credentials_path();
+pub fn set_credentials(_records: Vec<AWSCredential>) {
+  let _path = credentials_path();
   // TODO: persist serialized credentials to file
 }
 

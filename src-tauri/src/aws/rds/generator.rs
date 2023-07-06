@@ -38,7 +38,7 @@ pub fn generate_password(
         &credentials,
         &mut request,
     )?;
-    let mut uri = request.uri().to_string();
+    let uri = request.uri().to_string();
     let uri = uri.replace("http://", "");
     Ok(uri)
 }
