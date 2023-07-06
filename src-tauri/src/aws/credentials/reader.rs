@@ -8,7 +8,6 @@ use crate::aws::credentials::{
 };
 
 use ini::{Ini, Properties};
-use regex::Regex;
 use std::fs;
 
 pub fn get_credentials() -> Vec<AWSCredential> {
@@ -21,7 +20,6 @@ pub fn get_credentials() -> Vec<AWSCredential> {
       continue;
     }
 
-    let profile_name = sec.unwrap().to_string();
     credentials.push(parse_credential(sec, props.clone()));
   }
 
@@ -39,31 +37,15 @@ fn load_credentials_file() -> Ini {
 }
 
 fn parse_credential(sec: Option<&str>, props: Properties) -> AWSCredential {
-  let re = Regex::new(r"^aws_(.+)").unwrap();
-  let sec = sec.unwrap().to_string();
-
-  let mut aws_access_key_id = "".to_string();
-  let mut aws_secret_access_key = "".to_string();
-  let mut region = None;
-  let mut output = None;
-
-  for (key, value) in props.iter() {
-    if let Some(caps) = re.captures(key) {
-      let key = caps.get(1).map_or("", |m| m.as_str());
-      match key {
-        "access_key_id" => aws_access_key_id = value.to_string(),
-        "secret_access_key" => aws_secret_access_key = value.to_string(),
-        "region" => region = Some(value.to_string()),
-        "output" => output = Some(value.to_string()),
-        _ => (),
-      }
-    }
-  }
+  let aws_access_key_id = props.get("aws_access_key_id").map(|v| v.clone()).unwrap_or_default();
+  let aws_secret_access_key = props.get("aws_secret_access_key").map(|v| v.clone()).unwrap_or_default();
+  let region = props.get("region").map(|v| v.to_string()).unwrap_or_else(|| "eu-central-1".to_string());
+  let output = props.get("output").map(|v| v.to_string()).unwrap_or_else(|| "json".to_string());
 
   AWSCredential {
-    profile_name: sec.clone(),
-    region: region.unwrap_or("eu-central-1".to_string()),
-    output: output.unwrap_or("json".to_string()),
+    profile_name: sec.unwrap_or_default().to_string(),
+    region: region,
+    output: output,
     credential: Credentials::new(
     aws_access_key_id,
     aws_secret_access_key,
