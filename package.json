@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Convenience Tool for working with AWS, e.g. to generate a RDS short-lived passwords for IAM based authentication.",
   "private": true,
-  "license": "MIT",
+  "license": "CC-BY-NC-SA-3.0",
   "author": {
     "name": "DBL",
     "email": "oss@dbl.works"
