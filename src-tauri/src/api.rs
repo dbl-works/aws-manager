@@ -1,4 +1,5 @@
 use aws_credential_types::Credentials;
+use aws_sdk_rds::operation::create_blue_green_deployment::CreateBlueGreenDeploymentError;
 use aws_types::region::Region;
 
 use crate::aws;
@@ -29,9 +30,9 @@ pub async fn aws_rds_index() -> String {
 }
 
 #[tauri::command]
-pub async fn generate_password(hostname: String, port: u16, username: String) -> String {
+pub async fn generate_password(hostname: String, port: u16, username: String, profile: String) -> String {
   let credentials = aws::credentials::reader::get_credentials();
-  let credential = credentials.first().unwrap();
+  let credential = credentials.iter().filter(|cred| cred.profile_name == profile).next().unwrap();
   let region = Region::new(credential.region.clone());
 
   let password = aws::rds::generator::generate_password(

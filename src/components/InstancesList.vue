@@ -64,6 +64,7 @@
         navigator.clipboard.writeText(text);
       },
       refreshDatabases(profile) {
+        this.RDSInstances = [];
         invoke('set_aws_profile', { profileName: profile });
         invoke('aws_rds_index').then((body) => {
           try {
@@ -78,6 +79,7 @@
           hostname: instance.endpoint,
           port: instance.port,
           username: instance.username,
+          profile: this.selectedProfile,
         }).then((body) => {
           instance.password = body;
           this.copyToClipboard(instance.password);
