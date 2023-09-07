@@ -1,7 +1,7 @@
 use serde::Serialize;
 
-pub mod fetcher;
-pub mod generator;
+pub mod instances;
+pub mod session_password;
 
 #[derive(Serialize)]
 pub struct RDSInstance {
@@ -13,4 +13,3 @@ pub struct RDSInstance {
   status: String,
   username: String,
 }
-

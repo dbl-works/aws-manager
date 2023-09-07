@@ -18,7 +18,7 @@ pub fn set_aws_profile(profile_name: String) -> () {
 
 #[tauri::command]
 pub async fn aws_rds_index() -> String {
-  let rds_instances = match aws::rds::fetcher::get_instances().await {
+  let rds_instances = match aws::rds::instances::list().await {
     Ok(v) => v,
     Err(e) => return format!("Error: {:?}", e),
   };
@@ -35,7 +35,7 @@ pub async fn generate_password(hostname: String, port: u16, username: String, pr
   let credential = credentials.iter().filter(|cred| cred.profile_name == profile).next().unwrap();
   let region = Region::new(credential.region.clone());
 
-  let password = aws::rds::generator::generate_password(
+  let password = aws::rds::session_password::generate(
     &hostname, region, port, &username, &credential.credential
   ).expect("An error occurred generating the password");
   password

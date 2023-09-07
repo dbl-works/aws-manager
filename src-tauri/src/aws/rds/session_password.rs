@@ -6,7 +6,7 @@ use std::time::{Duration, SystemTime};
 use aws_sig_auth::signer::{self, SigningError, OperationSigningConfig, HttpSignatureType, RequestConfig};
 use http::Request;
 
-pub fn generate_password(
+pub fn generate(
     hostname: &str,
     region: Region,
     port: u16,
