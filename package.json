@@ -10,7 +10,7 @@
   },
   "scripts": {
     "serve": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "tauri:build": "tauri build",
     "tauri:serve": "vite preview",
@@ -30,11 +30,9 @@
     "eslint-plugin-vue": "^8.0.3",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.4.1",
-    "typescript": "^4.5.4",
     "vite": "^2.8.0",
     "vite-plugin-tauri": "^3.3.0",
-    "vue-eslint-parser": "^9.4.0",
-    "vue-tsc": "^0.3.0"
+    "vue-eslint-parser": "^9.4.0"
   },
   "eslintConfig": {
     "root": true,
