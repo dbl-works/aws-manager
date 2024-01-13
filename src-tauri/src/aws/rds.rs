@@ -13,4 +13,3 @@ pub struct RDSInstance {
   status: String,
   username: String,
 }
-
