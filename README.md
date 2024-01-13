@@ -17,7 +17,7 @@ Check latest release and install using binary suitable for your OS!
 ```sh
 yarn install
 cd src-tauri
-cargo install
+cargo build
 ```
 
 # How to build

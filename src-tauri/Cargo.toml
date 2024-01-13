@@ -7,7 +7,7 @@ license = "CC-BY-NC-SA-3.0"
 repository = "https://github.com/dbl-works/rds-manager"
 default-run = "app"
 edition = "2021"
-rust-version = "1.70"
+rust-version = "1.75"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
