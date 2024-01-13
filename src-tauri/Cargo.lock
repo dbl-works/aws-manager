@@ -68,10 +68,15 @@ version = "0.2.2"
 dependencies = [
  "aws-config",
  "aws-credential-types",
+ "aws-runtime",
  "aws-sdk-rds",
  "aws-sdk-signer",
  "aws-sig-auth",
+ "aws-sigv4",
+ "aws-smithy-async",
  "aws-smithy-http",
+ "aws-smithy-runtime-api",
+ "aws-smithy-types",
  "aws-types",
  "dirs",
  "http 1.0.0",
@@ -81,6 +86,7 @@ dependencies = [
  "serde_json",
  "tauri",
  "tauri-build",
+ "url",
 ]
 
 [[package]]
