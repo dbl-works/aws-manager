@@ -1,30 +1,6 @@
-// use aws_smithy_types::body::SdkBody;
-// use aws_types::region::{Region, SigningRegion};
-// use aws_types::SigningName;
-// use aws_sigv4::http_request::{sign, SigningParams, SigningSettings, PayloadChecksumKind, SignatureLocation, UriPathNormalizationMode, SessionTokenMode};
-// use aws_smithy_runtime_api::box_error::BoxError;
-use aws_runtime::auth::SigningOptions;
-use aws_smithy_runtime_api::client::identity::Identity;
-// use aws_credential_types::Credentials;
-// use std::time::Duration;
-// use http::Request;
-
-use aws_smithy_types::body::SdkBody;
-// use aws_sigv4::http_request::{sign, SigningParams, SigningSettings, SignatureLocation};
-use aws_smithy_runtime_api::box_error::BoxError;
 use aws_types::region::Region;
 use aws_credential_types::Credentials;
-// use http::Request;
-use std::time::Duration;
-// use aws_sigv4::sign::v4;
-
-// use aws_sigv4::http_request::{SignableRequest, SignableBody, SigningError};
-use http::{Request, Method};
-use std::convert::TryFrom;
-use std::sync::Arc;
 use std::time::SystemTime;
-use std::any::Any;
-use std::fmt::Debug;
 use std::error::Error;
 use aws_sigv4::{
     http_request::{sign, SignableBody, SignableRequest, SigningSettings},

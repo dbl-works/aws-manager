@@ -37,8 +37,8 @@ fn load_credentials_file() -> Ini {
 }
 
 fn parse_credential(sec: Option<&str>, props: Properties) -> AWSCredential {
-  let aws_access_key_id = props.get("aws_access_key_id").map(|v| v.clone()).unwrap_or_default();
-  let aws_secret_access_key = props.get("aws_secret_access_key").map(|v| v.clone()).unwrap_or_default();
+  let aws_access_key_id = props.get("aws_access_key_id").map(|v| v).unwrap_or_default();
+  let aws_secret_access_key = props.get("aws_secret_access_key").map(|v| v).unwrap_or_default();
   let region = props.get("region").map(|v| v.to_string()).unwrap_or_else(|| "eu-central-1".to_string());
   let output = props.get("output").map(|v| v.to_string()).unwrap_or_else(|| "json".to_string());
 
