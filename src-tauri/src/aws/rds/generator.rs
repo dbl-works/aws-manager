@@ -14,7 +14,6 @@ pub fn generate_password(
     username: &str,
     credentials: &Credentials,
 ) -> Result<String, Box<dyn Error>> {
-    // let identity = credentials.into();
     let identity = credentials.clone().into();
     let region_string = region.to_string();
 
