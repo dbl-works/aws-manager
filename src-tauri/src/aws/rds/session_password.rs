@@ -1,6 +1,6 @@
 use aws_smithy_http::body::SdkBody;
 use aws_types::region::{Region, SigningRegion};
-use aws_types::{SigningService};
+use aws_types::SigningService;
 use aws_credential_types::Credentials;
 use std::time::{Duration, SystemTime};
 use aws_sig_auth::signer::{self, SigningError, OperationSigningConfig, HttpSignatureType, RequestConfig};
