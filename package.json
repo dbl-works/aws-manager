@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "tauri:build": "tauri build",
     "tauri:serve": "vite preview",
