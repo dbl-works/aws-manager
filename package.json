@@ -9,8 +9,8 @@
     "email": "oss@dbl.works"
   },
   "scripts": {
-    "serve": "vite",
-    "build": "vite build",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
     "lint": "eslint .",
     "tauri:build": "tauri build",
     "tauri:serve": "vite preview",
