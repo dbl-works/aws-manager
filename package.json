@@ -1,6 +1,6 @@
 {
   "name": "aws-manager",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Convenience Tool for working with AWS, e.g. to generate a RDS short-lived passwords for IAM based authentication.",
   "private": true,
   "license": "CC-BY-NC-SA-3.0",
