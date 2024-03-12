@@ -1,17 +1,22 @@
 # AWS Manager
+
 ## Feature Scope
+
 * Generate short-lived password to login to an RDS instance with IAM authentication
 * tbd
 
-This is a Rust rewrite based on https://tauri.studio/ to learn Rust.
+This is a Rust rewrite based on [Tauri](https://tauri.studio/) to learn Rust.
 Join our (internal) Rust-learning channel if you want: [#learning-rust](http://go/rust)
 
 More learning resources:
+
 * [rust-lang/rustlings](https://github.com/rust-lang/rustlings)
 * [freecodecamp/rust-in-replit/](https://www.freecodecamp.org/news/rust-in-replit/)
-# How to install
+
+## How to install
 
 Check latest release and install using binary suitable for your OS!
+
 ## Project setup
 
 ```sh
@@ -20,7 +25,7 @@ cd src-tauri
 cargo build
 ```
 
-# How to build
+## How to build
 
 ```sh
 yarn tauri:build
@@ -32,21 +37,25 @@ on ARM/M1/M2:
 yarn tauri:build --target universal-apple-darwin
 ```
 
-# How to contribute
+## How to contribute
+
 * Open an issue to start a conversation
 * Open a pull request
 
 ### Compiles and hot-reloads for development
-```
+
+```shell
 yarn tauri:serve
 ```
 
 ### Compiles and minifies for production
-```
+
+```shell
 yarn tauri:build
 ```
 
 ### Lints and fixes files
-```
+
+```shell
 yarn lint
 ```
