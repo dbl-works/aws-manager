@@ -7,6 +7,8 @@ mod aws;
 mod api;
 
 fn main() {
+  let _ = fix_path_env::fix(); // fixes the app from crashing on macOS, see https://github.com/tauri-apps/tauri/issues/7063
+
   tauri::Builder::default()
     .invoke_handler(tauri::generate_handler![
       api::aws_credentials_index,
