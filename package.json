@@ -17,22 +17,22 @@
     "tauri:dev": "tauri dev"
   },
   "dependencies": {
-    "@headlessui/vue": "^1.7.14",
-    "@heroicons/vue": "^2.0.18",
-    "@tauri-apps/api": "^1.5.0",
-    "vue": "^3.4.13"
+    "@headlessui/vue": "1.7.23",
+    "@heroicons/vue": "2.2.0",
+    "@tauri-apps/api": "2.6.0",
+    "vue": "3.5.17"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "latest",
-    "@vitejs/plugin-vue": "^2.0.0",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.4.1",
-    "vite": "^2.8.0",
-    "vite-plugin-tauri": "^3.3.0",
-    "vue-eslint-parser": "^9.4.0"
+    "@tauri-apps/cli": "2.6.2",
+    "@vitejs/plugin-vue": "6.0.0",
+    "autoprefixer": "10.4.21",
+    "eslint": "9.31.0",
+    "eslint-plugin-vue": "10.3.0",
+    "postcss": "8.5.6",
+    "tailwindcss": "4.1.11",
+    "vite": "7.0.4",
+    "vite-plugin-tauri": "4.0.0",
+    "vue-eslint-parser": "10.2.0"
   },
   "eslintConfig": {
     "root": true,
