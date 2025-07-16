@@ -1,6 +1,6 @@
 [package]
 name = "app"
-version = "0.2.4"
+version = "0.3.0"
 description = "AWS Manager"
 authors = ["oss@dbl.works"]
 license = "CC-BY-NC-SA-3.0"
@@ -21,7 +21,7 @@ aws-config = "1.8.2"
 aws-sdk-rds = "1.97.0"
 rust-ini = "0.21.2"
 serde = { version = "1.0.219", features = ["derive"] }
-tauri = { version = "2.6.2" }
+tauri = { version = "2.6.2", features = [] }
 regex = { version = "1.11.1" }
 aws-sdk-signer = "1.75.0"
 aws-smithy-http = "0.62.1"

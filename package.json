@@ -1,6 +1,6 @@
 {
   "name": "aws-manager",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Convenience Tool for working with AWS, e.g. to generate a RDS short-lived passwords for IAM based authentication.",
   "private": true,
   "license": "CC-BY-NC-SA-3.0",
@@ -23,12 +23,11 @@
     "vue": "3.5.17"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
     "@tauri-apps/cli": "2.6.2",
     "@vitejs/plugin-vue": "6.0.0",
-    "autoprefixer": "10.4.21",
     "eslint": "9.31.0",
     "eslint-plugin-vue": "10.3.0",
-    "postcss": "8.5.6",
     "tailwindcss": "4.1.11",
     "vite": "7.0.4",
     "vite-plugin-tauri": "4.0.0",

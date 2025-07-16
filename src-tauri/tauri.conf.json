@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "productName": "aws-manager",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "identifier": "com.dbl-works.rds-manager",
   "mainBinaryName": "aws-manager",
   "build": {
@@ -12,7 +12,22 @@
   },
   "app": {
     "security": {
-      "csp": null
+      "csp": null,
+      "capabilities": [
+        {
+          "identifier": "main-capability",
+          "description": "Capability for main application functionality",
+          "windows": ["main"],
+          "permissions": [
+            "core:app:default",
+            "core:app:allow-version",
+            "core:window:default",
+            "core:window:allow-close",
+            "core:window:allow-minimize",
+            "core:window:allow-maximize"
+          ]
+        }
+      ]
     },
     "windows": [
       {
@@ -20,7 +35,8 @@
         "height": 600,
         "resizable": true,
         "title": "AWS Manager",
-        "width": 800
+        "width": 800,
+        "label": "main"
       }
     ]
   },
