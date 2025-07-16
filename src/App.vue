@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
     <!-- Header -->
-    <header class="border-b border-gray-700/50 bg-gray-900/50 backdrop-blur-sm">
+    <header class="relative z-50 border-b border-gray-700/50 bg-gray-900/50 backdrop-blur-sm">
       <div class="max-w-7xl mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-4">
